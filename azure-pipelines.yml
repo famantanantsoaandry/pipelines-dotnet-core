@@ -27,3 +27,5 @@ steps:
     command: publish
     projetcs: 'src/SimpleAPI.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifcat@1
+  displayName: 'publish artifacts'
