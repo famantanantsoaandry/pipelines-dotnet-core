@@ -20,3 +20,10 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+  
+- task: DotNetCoreCLI@5
+  displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) '
+  inputs:
+    command: publish
+    projetcs: 'src/SimpleAPI.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.Build.ArtifactStagingDirectory)'
